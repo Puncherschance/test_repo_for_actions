@@ -59,6 +59,7 @@ jobs:
          -o pages.zip
       - name: Unzip Artifacts
         run: mkdir allure-results && unzip artifacts.zip -d allure-results
+        continue-on-error: true
       - name: Unzip Pages
         run: >
          mkdir old_pages pages_history
@@ -66,10 +67,13 @@ jobs:
          unzip pages.zip -d old_pages
          &&
          tar -xvf old_pages/artifact.tar -C pages_history
+          continue-on-error: true
       - name: Copy History
         run: cp pages_history/history/* allure-results && cp -r pages_history/history allure-results
+        continue-on-error: true
       - name: Store Allure History
         uses: actions/upload-artifact@v4
+        continue-on-error: true
         with:
           name: allure-results
           path:
