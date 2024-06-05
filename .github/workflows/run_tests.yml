@@ -67,7 +67,7 @@ jobs:
          unzip pages.zip -d old_pages
          &&
          tar -xvf old_pages/artifact.tar -C pages_history
-          continue-on-error: true
+        continue-on-error: true
       - name: Copy History
         run: cp pages_history/history/* allure-results && cp -r pages_history/history allure-results
         continue-on-error: true
