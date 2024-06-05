@@ -1,6 +1,6 @@
 import allure
 
-
+@allure.feature('my_feature')
 class TestsSimple:
 
     @allure.title('test 1')
